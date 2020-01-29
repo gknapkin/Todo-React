@@ -42,10 +42,31 @@ class Todo extends Component {
       );
     } else {
       result = (
-        <div>
-          <h4>{this.props.task}</h4>
-          <button onClick={this.toggleForm}>Edit</button>
-          <button onClick={this.props.removeTodo}>X</button>
+        <div className="todo">
+          <div className="container">
+            <div className="row">
+              <div className="col-7">{this.props.task}</div>
+              <div className="col-5">
+                {this.props.time}
+                <div className="btn-group rightGroup">
+                  <button
+                    type="button"
+                    class="btn-sm btn-warning"
+                    onClick={this.toggleForm}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-sm btn-danger"
+                    onClick={this.props.removeTodo}
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

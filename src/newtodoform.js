@@ -17,22 +17,38 @@ class NewTodoForm extends Component {
   }
   handleSubmit(evt) {
     evt.preventDefault();
-    const newTodo = { ...this.state, id: uuid() };
+    const newTodo = {
+      ...this.state,
+      id: uuid(),
+      time: new Date().toLocaleTimeString()
+    };
     this.props.createTodo(newTodo);
     this.setState({ task: "" });
   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="task"
-            value={this.state.task}
-            onChange={this.handleChange}
-            id="task"
-          ></input>
-          <button>Add Todo</button>
+      <div className="container">
+        <form className="form-horizontal">
+          <div className="input-group">
+            <input
+              className="form-control"
+              type="text"
+              name="task"
+              value={this.state.task}
+              onChange={this.handleChange}
+              id="task"
+              placeholder="Type in a task or a todo!"
+            />
+            <div className="input-group-addon input-group-button">
+              <button
+                onClick={this.handleSubmit}
+                type="button"
+                className="btn btn-success"
+              >
+                Add Todo
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     );

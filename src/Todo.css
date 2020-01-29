@@ -1,6 +1,29 @@
 .TodoList {
   text-align: center;
+  margin: 2em;
 }
 body {
   background-color: tan;
+  font-family: montserrat;
+}
+.clear {
+  margin: 0.5em;
+}
+.alltodos {
+  margin: 0.5em;
+}
+.col-7 {
+  text-align: left;
+}
+.col-5 {
+  padding: 0;
+}
+.todo {
+  border: 2px solid black;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  padding: 1em;
+}
+.rightGroup {
+  float: right;
 }

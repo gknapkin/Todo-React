@@ -9,10 +9,16 @@ class TodoList extends Component {
     this.state = { todos: [] };
     this.createTodo = this.createTodo.bind(this);
     this.update = this.update.bind(this);
+    this.removeAll = this.removeAll.bind(this);
   }
   remove(id) {
     this.setState({
       todos: this.state.todos.filter(todo => todo.id !== id)
+    });
+  }
+  removeAll() {
+    this.setState({
+      todos: []
     });
   }
   update(id, updatedTask) {
@@ -36,6 +42,7 @@ class TodoList extends Component {
         id={todo.id}
         key={todo.id}
         task={todo.task}
+        time={todo.time}
         removeTodo={() => this.remove(todo.id)}
         updateTodo={this.update}
       />
@@ -43,8 +50,23 @@ class TodoList extends Component {
     return (
       <div className="TodoList">
         <h1>TodoListv1</h1>
-        <NewTodoForm createTodo={this.createTodo} />
-        {todos}
+        <button className="clear btn btn-danger" onClick={this.removeAll}>
+          Clear All Tasks
+        </button>
+        <div className="form">
+          <NewTodoForm createTodo={this.createTodo} />
+        </div>
+
+        <div className="alltodos">
+          <div className="container">
+            <div className="row">
+              <div className="col">Task</div>
+              <div className="col">Time</div>
+            </div>
+
+            {todos}
+          </div>
+        </div>
       </div>
     );
   }
