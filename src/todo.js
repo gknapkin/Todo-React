@@ -51,14 +51,14 @@ class Todo extends Component {
                 <div className="btn-group rightGroup">
                   <button
                     type="button"
-                    class="btn-sm btn-warning"
+                    className="btn-sm btn-warning"
                     onClick={this.toggleForm}
                   >
                     Edit
                   </button>
                   <button
                     type="button"
-                    class="btn-sm btn-danger"
+                    className="btn-sm btn-danger"
                     onClick={this.props.removeTodo}
                   >
                     X
