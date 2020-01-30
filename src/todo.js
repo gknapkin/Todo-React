@@ -31,12 +31,13 @@ class Todo extends Component {
         <div>
           <form onSubmit={this.handleUpdate}>
             <input
+              className="form-control"
               type="text"
               value={this.state.task}
               name="task"
               onChange={this.handleChange}
             />
-            <button>Save</button>
+            <button className="btn btn-sm btn-success">Save</button>
           </form>
         </div>
       );
