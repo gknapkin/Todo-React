@@ -43,7 +43,7 @@ class NewTodoForm extends Component {
             <div className="input-group-addon input-group-button">
               <button
                 onClick={this.handleSubmit}
-                type="button"
+                type="submit"
                 className="btn btn-success"
               >
                 Add Todo
