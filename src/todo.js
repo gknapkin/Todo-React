@@ -10,9 +10,13 @@ class Todo extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.toggleComplete = this.toggleComplete.bind(this);
   }
   toggleForm() {
     this.setState({ isEditing: !this.state.isEditing });
+  }
+  toggleComplete() {
+    this.props.completeTodo(this.props.id);
   }
   handleUpdate(evt) {
     evt.preventDefault();
@@ -46,10 +50,23 @@ class Todo extends Component {
         <div className="todo">
           <div className="container">
             <div className="row">
-              <div className="col-7">{this.props.task}</div>
+              <div
+                onClick={this.toggleComplete}
+                className={
+                  this.props.isComplete === true ? "complete col-7" : "col-7"
+                }
+              >
+                {this.props.task}
+              </div>
               <div className="col-5">
                 {this.props.time}
-                <div className="btn-group rightGroup">
+                <div
+                  className={
+                    this.props.isComplete === true
+                      ? "buttonGroupComplete"
+                      : "btn-group rightGroup"
+                  }
+                >
                   <button
                     type="button"
                     className="btn-sm btn-warning"

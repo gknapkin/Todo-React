@@ -20,7 +20,8 @@ class NewTodoForm extends Component {
     const newTodo = {
       ...this.state,
       id: uuid(),
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString(),
+      isComplete: false
     };
     this.props.createTodo(newTodo);
     this.setState({ task: "" });
